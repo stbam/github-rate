@@ -11,7 +11,7 @@ const styles = StyleSheet.create({
 const Main = ({ repositories }) => {
   return (
     <View style={styles.container}>
-       
+        <AppBar></AppBar>
       <Text>Rate Repository Application</Text>
       <RepositoryList repositories={repositories} />
       <BigBlueText></BigBlueText>
