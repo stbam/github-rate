@@ -10,12 +10,13 @@ const styles = StyleSheet.create({
 
 const Main = ({ repositories }) => {
   return (
-    <View>
+    <View style={styles.container}>
+       
       <Text>Rate Repository Application</Text>
       <RepositoryList repositories={repositories} />
       <BigBlueText></BigBlueText>
     </View>
-  )
+  );
 };
 
 export default Main;
