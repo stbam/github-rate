@@ -1,4 +1,4 @@
-import { View, StyleSheet,Pressable,onPressFunction,Text,Alert} from 'react-native';
+import { View, StyleSheet,Pressable,onPressFunction,Text,Alert,ScrollView} from 'react-native';
 import Constants from 'expo-constants';
 import AppBarTab from './AppBarTab';
 const styles = StyleSheet.create({
@@ -27,7 +27,12 @@ const AppBar = () => {
     <>
 
     <View style={styles.container} >{/* ... */}
-        <AppBarTab></AppBarTab>
+    <ScrollView horizontal>
+       { <AppBarTab></AppBarTab>}
+    </ScrollView>
+
+
+       
     </View>
 
 
