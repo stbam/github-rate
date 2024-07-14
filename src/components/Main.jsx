@@ -5,7 +5,9 @@ import RepositoryList from './RepositoryList'; // Adjust the path if necessary
 import BigBlueText from './BlueText';
 import AppBar from './AppBar';
 const styles = StyleSheet.create({
-
+ container:{
+    backgroundColor:'#e1e4e8'
+ }
 });
 
 const Main = ({ repositories }) => {

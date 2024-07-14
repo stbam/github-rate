@@ -5,11 +5,48 @@ const styles = StyleSheet.create({
   separator: {
     height: 10,
   },
-  avatar:{
-    width:50,
-    height:40
+  avatar: {
+    width: 50,
+    height: 50,
+    borderRadius: 4,
+  },
+  container: {
+    flexDirection: 'row',
+    padding: 10,
+    backgroundColor: 'white',
+  },
+  infoContainer: {
+    marginLeft: 10,
+    flex: 1,
+  },
+  fullName: {
+    fontWeight: 'bold',
+    marginBottom: 5,
+  },
+  description: {
+    color: '#586069',
+    marginBottom: 5,
+  },
+  language: {
+    padding: 4,
+    backgroundColor: '#0366d6',
+    color: 'white',
+    alignSelf: 'flex-start',
+    borderRadius: 4,
+    overflow: 'hidden',
+    marginBottom: 5,
+  },
+  stats: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    marginTop: 5,
+  },
+  statItem: {
+    alignItems: 'center',
+  },
+  statCount: {
+    fontWeight: 'bold',
   }
-  
 });
 
 const repositories = [
@@ -61,31 +98,42 @@ const repositories = [
 
 const ItemSeparator = () => <View style={styles.separator} />;
 
-const RepositoryList = () => {
-  const renderItem = ({ item }) => (
-  
-
-      <View style={styles}>
-        
-        <Image style={styles.avatar} source={{ uri: item.ownerAvatarUrl }} />
-        <Text >Full name:{item.fullName}</Text>
-        <Text>Description: {item.language}</Text>
-        <Text>Language: {item.description}</Text>
-        <Text>forks: {item.forksCount}</Text>
-        <Text> Stars: {item.stargazersCount}</Text>
-        <Text>Reviews: {item.reviewCount}</Text>
-        <Text>Rating Average: {item.ratingAverage}</Text>
+const RepositoryItem = ({ item }) => (
+  <View style={styles.container}>
+    <Image style={styles.avatar} source={{ uri: item.ownerAvatarUrl }} />
+    <View style={styles.infoContainer}>
+      <Text style={styles.fullName}>Full name: {item.fullName}</Text>
+      <Text style={styles.description}>Description: {item.description}</Text>
+      <Text style={styles.language}>{item.language}</Text>
+      <View style={styles.stats}>
+        <View style={styles.statItem}>
+          <Text style={styles.statCount}>{item.forksCount}</Text>
+          <Text>Forks</Text>
+        </View>
+        <View style={styles.statItem}>
+          <Text style={styles.statCount}>{item.stargazersCount}</Text>
+          <Text>Stars</Text>
+        </View>
+        <View style={styles.statItem}>
+          <Text style={styles.statCount}>{item.reviewCount}</Text>
+          <Text>Reviews</Text>
+        </View>
+        <View style={styles.statItem}>
+          <Text style={styles.statCount}>{item.ratingAverage}</Text>
+          <Text>Rating</Text>
+        </View>
       </View>
- 
-  );
+    </View>
+  </View>
+);
 
+const RepositoryList = () => {
   return (
     <FlatList
       data={repositories}
-      renderItem={renderItem}
+      renderItem={({ item }) => <RepositoryItem item={item} />}
       keyExtractor={(item) => item.id}
       ItemSeparatorComponent={ItemSeparator}
-      // Other props for FlatList
     />
   );
 };
