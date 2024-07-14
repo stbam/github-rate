@@ -1,6 +1,12 @@
+import React,{useState} from 'react';
+
 import Text from './Text';
+
 import { TextInput, Pressable, View,StyleSheet} from 'react-native';
 import { useFormik } from 'formik';
+import * as yup from 'yup';
+
+
 import theme from './theme';
 styles=StyleSheet.create({
     input: {
@@ -18,18 +24,26 @@ styles=StyleSheet.create({
   
 })
 
+
+
 const SignIn = () => {
+    const [userName,setUsername] = useState('');
+    const [password,setPassword] = useState('');
+
+    const onSubmit = () => {
+        console.log({userName,password});
+      };
+
   return (
     <View style={styles.box}>{/*inputDim={"inputDim"}*/}
                  <Text  color={"primary"} fontSize={"subheading"} fontWeight={"bold"} >The sign-in view</Text>
 
-                <TextInput style={styles.input} inputDim={"inputDim"}  placeholder='Username'/>
-                <TextInput style={styles.input}  placeholder='Password'/>
-                <Pressable  style={{...styles.input,backgroundColor:'#0366d6'}} >
-
-                    <Text style={{...styles.text, textAlign:'center'}} color={'default'} >Sign In</Text>
-
-                </Pressable>
+                    <TextInput value={userName} onChangeText={setUsername} style={styles.input} inputDim={"inputDim"}  placeholder='Username'/>
+                    <TextInput value={password} onChangeText={setPassword}style={styles.input}  placeholder='Password'/>
+                    
+                    <Pressable  onPress={onSubmit} style={{...styles.input,backgroundColor:'#0366d6'}} >
+                        <Text style={{...styles.text, textAlign:'center'}} color={'default'} >Sign In</Text>
+                     </Pressable>
     </View>
  
   
