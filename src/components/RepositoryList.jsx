@@ -4,7 +4,12 @@ import { FlatList, View, StyleSheet, Text, Image } from 'react-native';
 const styles = StyleSheet.create({
   separator: {
     height: 10,
+  },
+  avatar:{
+    width:50,
+    height:40
   }
+  
 });
 
 const repositories = [
@@ -60,8 +65,10 @@ const RepositoryList = () => {
   const renderItem = ({ item }) => (
   
 
-      <View>
-        <Text >Full name: {item.fullName}</Text>
+      <View style={styles}>
+        
+        <Image style={styles.avatar} source={{ uri: item.ownerAvatarUrl }} />
+        <Text >Full name:{item.fullName}</Text>
         <Text>Description: {item.language}</Text>
         <Text>Language: {item.description}</Text>
         <Text>forks: {item.forksCount}</Text>
