@@ -12,9 +12,10 @@ styles=StyleSheet.create({
         borderWidth: 1,
         borderColor: theme.colors.textSecondary,
       },
-      box:{
-        backgroundColor:"white"
+      text:{
+        justifyContent:'center',
       }
+  
 })
 
 const SignIn = () => {
@@ -23,8 +24,12 @@ const SignIn = () => {
                  <Text  color={"primary"} fontSize={"subheading"} fontWeight={"bold"} >The sign-in view</Text>
 
                 <TextInput style={styles.input} inputDim={"inputDim"}  placeholder='Username'/>
-                <TextInput style={styles.input} placeholder='Password'/>
-                <Pressable><Text color={"primary"}>Sign In</Text></Pressable>
+                <TextInput style={styles.input}  placeholder='Password'/>
+                <Pressable  style={{...styles.input,backgroundColor:'#0366d6'}} >
+
+                    <Text style={{...styles.text, textAlign:'center'}} color={'default'} >Sign In</Text>
+
+                </Pressable>
     </View>
  
   

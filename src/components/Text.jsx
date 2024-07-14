@@ -15,6 +15,9 @@ const styles = StyleSheet.create({
   colorPrimary: {
     color: theme.colors.primary,
   },
+  default:{
+    color:theme.colors.default,
+  },
   fontSizeSubheading: {
     fontSize: theme.fontSizes.subheading,
   },
@@ -30,17 +33,23 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     borderColor: theme.colors.textSecondary,
   },
+  backgroundColor:{
+    backgroundColor:theme.backGround.backgroundColor
+  }
 
 });
 
-const Text = ({ inputDim,color, fontSize, fontWeight, style, ...props }) => {
+const Text = ({ backGround,inputDim,color, fontSize, fontWeight, style, ...props }) => {
   const textStyle = [
     styles.text,
     color === 'textSecondary' && styles.colorTextSecondary,
     color === 'primary' && styles.colorPrimary,
+    color ==='default' && styles.default,
+
     fontSize === 'subheading' && styles.fontSizeSubheading,
     fontWeight === 'bold' && styles.fontWeightBold,
     inputDim==='inputDim' && styles.dimensions,
+    backGround==='backGround' && styles.backgroundColor,
     style,
   ];
 
