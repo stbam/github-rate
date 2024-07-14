@@ -19,15 +19,6 @@ const Main = ({ repositories }) => {
         <AppBar></AppBar>
       <Text>Rate Repository Application</Text>
    {/*   <RepositoryList repositories={repositories} />*/}
-      
-     <Link to="/SignIn">
-        <Text >Sign In</Text>
-      </Link>
-
-      <Link to="/RepositoryList">
-        <Text >Go Back</Text>
-      </Link>
-
 
       <Routes>
         <Route path="/" element={<RepositoryList />} /> {/* This duplicates the items*/}

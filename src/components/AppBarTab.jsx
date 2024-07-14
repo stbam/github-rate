@@ -1,4 +1,6 @@
 import { View, StyleSheet,Pressable,onPressFunction,Text,Alert} from 'react-native';
+import { Route, Routes, Navigate,Link} from 'react-router-native';
+
 import Constants from 'expo-constants';
 
 const styles = StyleSheet.create({
@@ -9,7 +11,8 @@ const styles = StyleSheet.create({
    //justifyContent:'space-between',
    //paddingHorizontal: 16,
    //alignItems: 'center',
-  // flexDirection:'row'
+  flexDirection:'row',
+  gap:15
 
         // ...
   },
@@ -17,6 +20,7 @@ const styles = StyleSheet.create({
     color:'white',
     fontSize:20,
   },
+
   // ...
 });
 const AppBarTab = () => {
@@ -29,6 +33,14 @@ const AppBarTab = () => {
         <Pressable onPress={onPressFunction}>
             <Text style={styles.text} >I'm pressable!</Text>
         </Pressable>
+
+        <Link  to="/SignIn">
+                     <Text style={styles.text}>Sign In</Text>
+                </Link>
+
+            <Link  to="/RepositoryList">
+                <Text style={styles.text} >Go Back</Text>
+            </Link>
         
     </View>
     </>
