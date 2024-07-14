@@ -15,6 +15,11 @@ const theme = {
       normal: '400',
       bold: '700',
     },
+    boxDim:{
+        height:40,
+        width:400,
+        backgroundColor:'white'
+    }
   };
   
   export default theme;

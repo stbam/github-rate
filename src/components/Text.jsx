@@ -21,15 +21,26 @@ const styles = StyleSheet.create({
   fontWeightBold: {
     fontWeight: theme.fontWeights.bold,
   },
+  dimensions:{
+    height:theme.boxDim.height,
+    width:theme.boxDim.width,
+    backgroundColor: theme.boxDim.backgroundColor,
+    marginVertical: 10,
+    padding: 10,
+    borderWidth: 1,
+    borderColor: theme.colors.textSecondary,
+  },
+
 });
 
-const Text = ({ color, fontSize, fontWeight, style, ...props }) => {
+const Text = ({ inputDim,color, fontSize, fontWeight, style, ...props }) => {
   const textStyle = [
     styles.text,
     color === 'textSecondary' && styles.colorTextSecondary,
     color === 'primary' && styles.colorPrimary,
     fontSize === 'subheading' && styles.fontSizeSubheading,
     fontWeight === 'bold' && styles.fontWeightBold,
+    inputDim==='inputDim' && styles.dimensions,
     style,
   ];
 
