@@ -1,5 +1,6 @@
 import { View, StyleSheet,Pressable,onPressFunction,Text,Alert} from 'react-native';
 import Constants from 'expo-constants';
+import AppBarTab from './AppBarTab';
 const styles = StyleSheet.create({
   container: {
     paddingTop: Constants.statusBarHeight,
@@ -15,7 +16,6 @@ const styles = StyleSheet.create({
   text:{
     color:'white',
     fontSize:20,
-
   },
   // ...
 });
@@ -25,12 +25,9 @@ const AppBar = () => {
     }
   return (
     <>
+
     <View style={styles.container} >{/* ... */}
-
-    <Pressable onPress={onPressFunction}>
-        <Text style={styles.text} >I'm pressable!</Text>
-    </Pressable>
-
+        <AppBarTab></AppBarTab>
     </View>
 
 
