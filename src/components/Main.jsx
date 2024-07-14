@@ -1,4 +1,6 @@
 import React from 'react';
+import { Route, Routes, Navigate } from 'react-router-native';
+
 import { Text, View, StyleSheet } from 'react-native';
 import Constants from 'expo-constants';
 import RepositoryList from './RepositoryList'; // Adjust the path if necessary
@@ -16,7 +18,13 @@ const Main = ({ repositories }) => {
         <AppBar></AppBar>
       <Text>Rate Repository Application</Text>
       <RepositoryList repositories={repositories} />
-      <BigBlueText></BigBlueText>
+      
+      <Routes>
+        <Route path="/" element={<RepositoryList />} /> {/* This duplicates the items*/}
+        <Route path="*" element={<Navigate to="/" replace />} />
+      </Routes>
+
+
     </View>
   );
 };
